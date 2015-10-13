@@ -33,7 +33,7 @@ The first thing I noticed was that there was no books controller and the actions
 
 I then added the routes for the book controller actions and removed the logic from the user show page into a partial to clean up this view. I would normally do this with code that needed to be reused elsewhere, to prevent unnecessary duplication.
 
-I thought that the AdminMailer might be causing the site to respond slowly when creating users. To test this I commented out the action in the users controller and checked the response times in the terminal.
+I thought that the AdminMailer might be causing the site to respond slowly when creating users. To test this I commented out the mailer code in the users controller and checked the response times in the terminal.
 
 With the AdminMailer in the Users Controller (3.9ms):
 ---
