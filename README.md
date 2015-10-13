@@ -35,13 +35,13 @@ I then added the routes for the book controller actions and removed the logic fr
 
 I thought that the AdminMailer might be causing the site to respond slowly when creating users. To test this I commented out the action in the users controller and checked the response times in the terminal.
 
-With the AdminMailer:
+With the AdminMailer in the User Controller:
 ---
 <div align="center">
         <img width="100%" src="/app/assets/images/mailer_test_1.png">
 </div>
 
-Without the AdminMailer:
+Without the AdminMailer in the User Controller:
 ---
 <div align="center">
         <img width="100%" src="/app/assets/images/mailer_test_2.png">
