@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   resources :users do
-    member do
-      post 'create_book'
-      delete 'destroy_book'
-    end
+    resources :books
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
