@@ -20,10 +20,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        # Notify the admin that a new user has been added
-        AdminMailer.new_user(@user).deliver_now
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
+        # Notify the admin that a new user has been added
+        AdminMailer.new_user(@user).deliver_now
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
