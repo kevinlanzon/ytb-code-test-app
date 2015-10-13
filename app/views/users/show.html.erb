@@ -17,14 +17,14 @@
       <% @user.books.each do |book| %>
         <li>
           <%= book.title %>
-          <%= link_to 'Destroy', destroy_book_user_path(@user, book_id: book.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Destroy', user_book_path(@user, book), method: :delete, data: { confirm: 'Are you sure?' } %>
         </li>
       <% end %>
     </ul>
   </p>
 <% end %>
 
-<%= render partial: 'book_form', locals: { user: @user } %>
+<%= render partial: 'books/form', locals: { user: @user } %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

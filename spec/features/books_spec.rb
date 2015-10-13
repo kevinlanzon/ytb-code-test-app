@@ -10,7 +10,7 @@ RSpec.feature 'Books:', type: :feature do
       user
       visit user_path(user)
       fill_in 'Title', with: 'My new book'
-      click_on 'Save Book'
+      click_on 'Create Book'
     end
 
     it 'displays the book title on the user show page' do

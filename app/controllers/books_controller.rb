@@ -2,6 +2,8 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @user = User.find(params[:user_id])
+    @book.user = @user
 
     respond_to do |format|
       if @book.save
@@ -15,10 +17,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:book_id])
+    @book = Book.find(params[:id])
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to @user, notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to @book.user, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
