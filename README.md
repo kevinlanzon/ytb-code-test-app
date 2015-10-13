@@ -31,7 +31,7 @@ Notes
 
 The first thing I noticed was that there was no books controller and the actions for creating and deleting books were included in the users controller. This goes against Rails' convention over configuration. I created a books controller and moved the create_book and destroy_book actions into here to separate concerns and for single responsibilty.
 
-I then added the routes for the book controller actions and removed the logic from the user show page into a partial just to clean up this view. I would normally only do this with code that needed to be reused elsewhere to prevent unnecessary duplication.
+I then added the routes for the book controller actions and removed the logic from the user show page into a partial to clean up this view. I would normally do this with code that needed to be reused elsewhere, to prevent unnecessary duplication.
 
 I thought that the AdminMailer might be causing the site to respond slowly when creating users. To test this I commented out the action in the users controller and checked the response times in the terminal.
 
@@ -46,5 +46,6 @@ Without the AdminMailer:
 <div align="center">
         <img width="100%" src="/app/assets/images/mailer_test_2.png">
 </div>
+---
 
 My first thought to solve this was to move the AdminMailer in the user controller down to above the else statement on line 26. My thinking was that Rails being synchronous, the users might be saved and the page rendered before any emails were sent but this didn't seem to be the case as the load times were the same. Unfortunately the two hours were up at this point so I didn't get time to solve this problem. Searching on Google and StackOverflow I found a gem called delayed_job that asynchronously executes longer tasks in the background like sending out emails and this would be one way of solving this problem. Had I more time I would have tried this solution.
