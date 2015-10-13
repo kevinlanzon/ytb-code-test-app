@@ -1,0 +1,13 @@
+<% if @user.books.any? %>
+  <p>
+    <strong>Books:</strong>
+    <ul>
+      <% @user.books.each do |book| %>
+        <li>
+          <%= book.title %>
+          <%= link_to 'Destroy', user_book_path(@user, book), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+      <% end %>
+    </ul>
+  </p>
+<% end %>
